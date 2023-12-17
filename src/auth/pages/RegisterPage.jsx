@@ -1,7 +1,7 @@
 import {Link as RouterLink} from 'react-router-dom';
 import { Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { AuthLayout } from "../layout/AuthLayout"
-import { Google } from "@mui/icons-material"
+
 
 export const RegisterPage = () => {
 
@@ -43,26 +43,11 @@ export const RegisterPage = () => {
                             fullWidth/>
                     </Grid>
 
-                    <Grid item xs={12} sx={{mt:2}}>
-                        <TextField 
-                            label="Repite la contrasena" 
-                            type="password" 
-                            placeholder="Repeat" 
-                            fullWidth/>
-                    </Grid>
 
                     <Grid container spacing={2} sx={{ mb:2, mt:2}}>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={12}>
                             <Button variant='contained' fullWidth sx={{ }}>
                                 register
-                            </Button>
-
-                        </Grid>
-
-                        <Grid item xs={12} sm={6}>
-                            <Button variant='contained' fullWidth sx={{ }}>
-                                <Google />
-                                <Typography sx={{ml: 1}}>GOOGLE</Typography>
                             </Button>
 
                         </Grid>
@@ -70,8 +55,9 @@ export const RegisterPage = () => {
                     </Grid>
 
                     <Grid container direction='row' justifyContent='end'>
-                        <Link component={ RouterLink } color='inherit' to="/auth/login">
-                            ya tienes cuenta
+                        <Typography>Ya tienes una cuenta? </Typography>
+                        <Link component={ RouterLink } color='inherit' to="/auth/login" sx={{ml:1}}>
+                            Ingresar
                         </Link>
                         
                     </Grid> 
