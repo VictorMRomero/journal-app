@@ -1,9 +1,22 @@
 import {Link as RouterLink} from 'react-router-dom';
 import { Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { AuthLayout } from "../layout/AuthLayout"
+import { useForm } from '../../hooks';
 
 
 export const RegisterPage = () => {
+
+    const formData = {
+        email: 'vmrbaez@gmail.com',
+        password: 123456,
+        displayName: 'Victor Romero'
+    }
+
+    const {displayName, email, password, onInputChange} = useForm ({
+        email: 'victor@gmail.com',
+        password: '12433333'
+
+    });
 
 
     return(
