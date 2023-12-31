@@ -4,7 +4,7 @@ import { Alert, Button, Grid, Link, TextField, Typography} from "@mui/material";
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import { useDispatch, useSelector } from 'react-redux';
-import { chekingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth/thunks';
+import {  startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth/thunks';
 import { useMemo } from 'react';
 
 
@@ -40,7 +40,7 @@ export const LoginPage = () => {
     return(
         <AuthLayout title='login' >
 
-            <form onSubmit={ onSubmit }>
+            <form onSubmit={ onSubmit }  className="animate__animated animate__fadeIn animate__faster">
                 <Grid container>
                     <Grid item xs={12} sx={{mt:2}}>
                         <TextField 
