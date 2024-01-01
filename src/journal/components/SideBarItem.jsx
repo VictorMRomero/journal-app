@@ -7,7 +7,7 @@ import { setActiveNote } from "../../store/journal"
 import { useDispatch } from "react-redux"
 
 
-export const SideBarItem = ({title, body, id, date, imageUrls}) => {
+export const SideBarItem = ({title, body, id, date, imageUrls=[]}) => {
 
     const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ export const SideBarItem = ({title, body, id, date, imageUrls}) => {
     
     const onSetActiveNote = () => {
 
-        dispatch(setActiveNote({title, body, id, date, imageUrls}));
+        dispatch(setActiveNote({title, body, id, date, imageUrls }));
         
     }
 

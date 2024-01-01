@@ -4,9 +4,18 @@ export const useForm = ( initialForm = {} , formValidations = {}) => {
   
     const [ formState, setFormState ] = useState( initialForm );
     const [formValidation, setFormValidation] = useState({});
+
+
     useEffect(() => {
         createValidators();
     }, [formState])
+
+
+    useEffect(() => {
+
+        setFormState(initialForm)
+
+    }, [initialForm])
 
     const isFormValid = useMemo(() => {
 
