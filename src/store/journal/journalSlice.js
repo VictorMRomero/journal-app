@@ -8,13 +8,13 @@ export const journalSlice = createSlice({
         isSaving: false,
         messageSave: '',
         notes: [],
-        active:null
+        active:null,
         // active: {
         //     id:'ABC123',
         //     title:'',
         //     body: '',
         //     date: 1234567,
-        //     imageUrls:[]
+        imageUrls:[]
         // },
         
     },
@@ -28,12 +28,14 @@ export const journalSlice = createSlice({
         },
         setActiveNote: (state, action) => {
             state.active=action.payload;
+            state.messageSave = '';
         },
         setNotes: (state, action) => {
             state.notes = action.payload;
         },
         setSaving: (state, action) => {
             state.isSaving = true;
+            state.messageSave = '';
         },
         noteUpdated: (state, action) => {
             state.isSaving = false;
@@ -46,11 +48,32 @@ export const journalSlice = createSlice({
                 return note;
             })
 
+            state.messageSave = `${action.payload.title}, actualizada correctamente`
+
         },
-        deleteNote: (state, action) => {
+        
+        setFotosToActiveNote:(state, action) => {
+
+            state.active.imageUrls = [...state.active.imageUrls, ...action.payload]
+            state.isSaving=false;
+        },
+
+        clearNotesLogout: (state) => {
+            state.isSaving=false;
+            state.messageSave = '';
+            state.notes=[];
+            state.active=null;
+        },
+        
+        deleteNoteById: (state, action) => {
+            
+            state.active = null;
+            state.notes = state.notes.filter (note => note.id !== action.payload)
+
+
 
         }
     }
 });
 
-export const { isSavingNote, addNewEmptyNote, setActiveNote, setNotes, setSaving, noteUpdated, deleteNote } = journalSlice.actions;
+export const {clearNotesLogout, setFotosToActiveNote, isSavingNote, addNewEmptyNote, setActiveNote, setNotes, setSaving, noteUpdated, deleteNoteById } = journalSlice.actions;
